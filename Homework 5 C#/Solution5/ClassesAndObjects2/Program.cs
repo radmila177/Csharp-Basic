@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace CarsDrivers
+namespace ClassesAndObjects2
 {
     public class Driver
     {
@@ -25,6 +25,7 @@ namespace CarsDrivers
             Speed = speed;
         }
 
+
         public int CalculateSpeed(Driver driver)
         {
             int totalSpeed = driver.Skill * Speed;
@@ -37,22 +38,23 @@ namespace CarsDrivers
         {
 
         }
-        static Car ChooseCar(int counter)
+        static void Main(string[] args)
         {
+            
             //Car[] chosenCar = new Car[4];
             Car[] myCar = new Car[]
-            {
+        {
                 new Car("Hyundai ", 170),
                 new Car("Mazda", 200),
                 new Car("Ferrari", 250),
                 new Car("Porsche", 290)
-            };
-
-            Console.WriteLine($@"Choose car number 1: {counter}
+        };
+            Console.WriteLine($@"Choose car number: 
 For Hyundai input 1
 For Mazda inpu 2
 For Ferrari input 3
 For Porsche input 4");
+
 
             bool carN = int.TryParse(Console.ReadLine(), out int carNumber);
 
@@ -60,7 +62,6 @@ For Porsche input 4");
             {
                 case 1:
                     myCar[0] = myCar[0];
-
                     break;
                 case 2:
                     myCar[1] = myCar[1];
@@ -73,24 +74,18 @@ For Porsche input 4");
                     break;
                 default:
                     Console.WriteLine("Invalid input.");
-                    ChooseCar(counter);
+                    
                     break;
             }
-            return myCar[3];
-
-        }
-
-        static Driver ChooseDriver(int counter)
-        {
-            //Driver[] chosenDriver = new Driver[4];
+            
             Driver[] myDriver = new Driver[]
-            {
+      {
                 new Driver("Bob ", 15),
                 new Driver("Greg", 20),
                 new Driver("Jill", 25),
                 new Driver("Anne", 29)
-            };
-            Console.WriteLine($@"Choose driver number 1: {counter}
+      };
+            Console.WriteLine($@"Choose driver number: 
 Fo Bob input 1
 For Greg inpu 2
 For Jill input 3
@@ -115,24 +110,13 @@ For Anne input 4");
                     break;
                 default:
                     Console.WriteLine("Invalid input.");
-                    ChooseDriver(counter);
+                 
                     break;
             }
-            return myDriver[3];
-        }
-
-
-        static void Main(string[] args)
-        {
-            Car[] car1 = new Car[4];
-            Car[] car2 = new Car[4];
-
-            Driver[] driver1 = new Driver[4];
-            Driver[] driver2 = new Driver[4];
-
-            ChooseCar(2);
-            ChooseDriver(2);
+          
             Console.ReadLine();
         }
+
+
     }
 }
